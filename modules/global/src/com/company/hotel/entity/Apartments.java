@@ -21,10 +21,10 @@ public class Apartments extends StandardEntity {
     private Integer number;
 
     @Column(name = "IS_BOOKED")
-    private Boolean isBooked;
+    private Boolean isBooked = false;
 
     @Column(name = "IS_FREE")
-    private Boolean isFree;
+    private Boolean isFree = true;
 
     public Boolean getIsFree() {
         return isFree;
