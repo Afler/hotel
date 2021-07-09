@@ -31,6 +31,7 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+                <action id="bookApartments"/>
             </actions>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
@@ -38,6 +39,8 @@
                 <button id="createBtn" action="apartmentsTable.create"/>
                 <button id="editBtn" action="apartmentsTable.edit"/>
                 <button id="removeBtn" action="apartmentsTable.remove"/>
+                <button id="apartmentsTableBookApartmentsBtn" action="apartmentsTable.bookApartments"
+                        caption="&#1047;&#1072;&#1073;&#1088;&#1086;&#1085;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1085;&#1086;&#1084;&#1077;&#1088;"/>
             </buttonsPanel>
             <columns>
                 <column id="number"/>
