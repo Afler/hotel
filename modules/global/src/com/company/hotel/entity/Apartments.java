@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Table(name = "HOTEL_APARTMENTS")
 @Entity(name = "hotel_Apartments")
@@ -16,6 +17,7 @@ public class Apartments extends StandardEntity {
 
     @NotNull
     @Column(name = "NUMBER_", nullable = false, unique = true)
+    @Positive
     private Integer number;
 
     @Column(name = "IS_BOOKED")
