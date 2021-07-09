@@ -2,13 +2,13 @@
 <window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
         caption="msg://apartmentsBrowse.caption"
-        focusComponent="apartmentsesTable"
+        focusComponent="apartmentsTable"
         messagesPack="com.company.hotel.web.screens.apartments">
     <data readOnly="true">
-        <collection id="apartmentsesDc"
+        <collection id="apartmentsDc"
                     class="com.company.hotel.entity.Apartments">
             <view extends="_local"/>
-            <loader id="apartmentsesDl">
+            <loader id="apartmentsDl">
                 <query>
                     <![CDATA[select e from hotel_Apartments e]]>
                 </query>
@@ -17,33 +17,33 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="apartmentsesTable"
+    <layout expand="apartmentsTable"
             spacing="true">
         <filter id="filter"
-                applyTo="apartmentsesTable"
-                dataLoader="apartmentsesDl">
+                applyTo="apartmentsTable"
+                dataLoader="apartmentsDl">
             <properties include=".*"/>
         </filter>
-        <groupTable id="apartmentsesTable"
+        <groupTable id="apartmentsTable"
                     width="100%"
-                    dataContainer="apartmentsesDc">
+                    dataContainer="apartmentsDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
             </actions>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="apartmentsTable.create"/>
+                <button id="editBtn" action="apartmentsTable.edit"/>
+                <button id="removeBtn" action="apartmentsTable.remove"/>
+            </buttonsPanel>
             <columns>
                 <column id="number"/>
                 <column id="isBooked"/>
                 <column id="isFree"/>
             </columns>
-            <rowsCount/>
-            <buttonsPanel id="buttonsPanel"
-                          alwaysVisible="true">
-                <button id="createBtn" action="apartmentsesTable.create"/>
-                <button id="editBtn" action="apartmentsesTable.edit"/>
-                <button id="removeBtn" action="apartmentsesTable.remove"/>
-            </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
             <button action="lookupSelectAction"/>
