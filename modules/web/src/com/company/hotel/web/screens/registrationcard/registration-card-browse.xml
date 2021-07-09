@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://registrationCardBrowse.caption"
+        focusComponent="registrationCardsTable"
+        messagesPack="com.company.hotel.web.screens.registrationcard">
+    <data readOnly="true">
+        <collection id="registrationCardsDc"
+                    class="com.company.hotel.entity.RegistrationCard">
+            <view extends="_local">
+                <property name="client" view="_minimal"/>
+                <property name="apartments" view="_minimal"/>
+            </view>
+            <loader id="registrationCardsDl">
+                <query>
+                    <![CDATA[select e from hotel_RegistrationCard e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="registrationCardsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="registrationCardsTable"
+                dataLoader="registrationCardsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="registrationCardsTable"
+                    width="100%"
+                    dataContainer="registrationCardsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="client"/>
+                <column id="apartments"/>
+                <column id="arrivalDate"/>
+                <column id="departureDate"/>
+                <column id="isPayment"/>
+                <column id="paymentDate"/>
+                <column id="isPrepayment"/>
+                <column id="prepaymentDate"/>
+                <column id="isCOVID"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="registrationCardsTable.create"/>
+                <button id="editBtn" action="registrationCardsTable.edit"/>
+                <button id="removeBtn" action="registrationCardsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

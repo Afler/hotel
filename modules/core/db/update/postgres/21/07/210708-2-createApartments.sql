@@ -1,0 +1,1 @@
+create unique index IDX_HOTEL_APARTMENTS_UK_NUMBER_ on HOTEL_APARTMENTS (NUMBER_) where DELETE_TS is null ;

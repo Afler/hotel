@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="hotel" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.hotel.entity.Apartments</class>
+        <class>com.company.hotel.entity.Client</class>
+        <class>com.company.hotel.entity.RegistrationCard</class>
+        <class>com.company.hotel.entity.Contacts</class>
+    </persistence-unit>
+</persistence>

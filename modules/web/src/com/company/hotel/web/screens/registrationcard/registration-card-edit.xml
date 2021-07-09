@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://registrationCardEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.hotel.web.screens.registrationcard">
+    <data>
+        <instance id="registrationCardDc"
+                  class="com.company.hotel.entity.RegistrationCard">
+            <view extends="_local">
+                <property name="client" view="_minimal"/>
+                <property name="apartments" view="_minimal"/>
+            </view>
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="registrationCardDc">
+            <column width="350px">
+                <pickerField id="clientField" property="client">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <pickerField id="apartmentsField" property="apartments">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <dateField id="arrivalDateField" property="arrivalDate"/>
+                <dateField id="departureDateField" property="departureDate"/>
+                <checkBox id="isPaymentField" property="isPayment"/>
+                <dateField id="paymentDateField" property="paymentDate" visible="false"/>
+                <checkBox id="isPrepaymentField" property="isPrepayment"/>
+                <dateField id="prepaymentDateField" property="prepaymentDate" visible="false"/>
+                <checkBox id="isCOVIDField" property="isCOVID"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
