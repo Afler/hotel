@@ -35,20 +35,23 @@ public class RegistrationCard extends StandardEntity {
     @Column(name = "DEPARTURE_DATE", nullable = false)
     private LocalDate departureDate;
 
-    @Column(name = "IS_PAYMENT")
-    private Boolean isPayment;
+    @Column(name = "IS_PAYMENT", nullable = false)
+    @NotNull
+    private Boolean isPayment = false;
 
     @Column(name = "PAYMENT_DATE")
     private LocalDate paymentDate;
 
-    @Column(name = "IS_PREPAYMENT")
-    private Boolean isPrepayment;
+    @Column(name = "IS_PREPAYMENT", nullable = false)
+    @NotNull
+    private Boolean isPrepayment = false;
 
     @Column(name = "PREPAYMENT_DATE")
     private LocalDate prepaymentDate;
 
-    @Column(name = "IS_COVID")
-    private Boolean isCOVID;
+    @Column(name = "IS_COVID", nullable = false)
+    @NotNull
+    private Boolean isCOVID = false;
 
     public Boolean getIsCOVID() {
         return isCOVID;

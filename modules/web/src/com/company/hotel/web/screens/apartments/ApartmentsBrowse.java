@@ -17,14 +17,15 @@ import javax.inject.Inject;
 @LookupComponent("apartmentsTable")
 @LoadDataBeforeShow
 public class ApartmentsBrowse extends StandardLookup<Apartments> {
-
     @Inject
     private Screens screens;
 
     @Inject
     private GroupTable<Apartments> apartmentsTable;
+
     @Inject
     private Button bookApartmentsBtn;
+
     @Inject
     private DataManager dataManager;
 

@@ -13,11 +13,11 @@ create table HOTEL_REGISTRATION_CARD (
     APARTMENTS_ID uuid not null,
     ARRIVAL_DATE date not null,
     DEPARTURE_DATE date not null,
-    IS_PAYMENT boolean,
+    IS_PAYMENT boolean not null,
     PAYMENT_DATE date,
-    IS_PREPAYMENT boolean,
+    IS_PREPAYMENT boolean not null,
     PREPAYMENT_DATE date,
-    IS_COVID boolean,
+    IS_COVID boolean not null,
     --
     primary key (ID)
 )^

@@ -1,14 +1,16 @@
 package com.company.hotel.web.screens.registrationcard;
 
 import com.company.hotel.entity.Apartments;
-import com.haulmont.cuba.gui.components.DateField;
-import com.haulmont.cuba.gui.components.HasValue;
-import com.haulmont.cuba.gui.components.PickerField;
+import com.company.hotel.entity.Client;
+import com.haulmont.cuba.core.global.DataManager;
+import com.haulmont.cuba.core.global.FluentLoader;
+import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.hotel.entity.RegistrationCard;
 
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @UiController("hotel_RegistrationCard.edit")
 @UiDescriptor("registration-card-edit.xml")
@@ -17,10 +19,29 @@ import java.time.LocalDate;
 public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
     @Inject
     private DateField<LocalDate> paymentDateField;
+
     @Inject
     private DateField<LocalDate> prepaymentDateField;
+
+    @Inject
+    private CheckBox isPrepaymentField;
+
+    @Inject
+    private CheckBox isPaymentField;
+
+    @Inject
+    private PickerField<Client> clientField;
+
+    @Inject
+    private CheckBox isCOVIDField;
+
     @Inject
     private PickerField<Apartments> apartmentsField;
+
+    @Inject
+    private DateField<LocalDate> departureDateField;
+    @Inject
+    private DataManager dataManager;
 
     @Subscribe("isPaymentField")
     public void onIsPaymentFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
@@ -32,11 +53,26 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
         prepaymentDateField.setVisible(Boolean.TRUE.equals(event.getComponent().getValue()));
     }
 
-    public void setApartmentsField(Apartments apartmentsField) {
-        this.apartmentsField.setValue(apartmentsField);
-    }
-
     public void lockApartmentsField() {
         apartmentsField.setEnabled(false);
+    }
+
+    public void lockAllNonArrivalDateFields() {
+        isCOVIDField.setEnabled(false);
+        isPaymentField.setEnabled(false);
+        isPrepaymentField.setEnabled(false);
+        clientField.setEnabled(false);
+        apartmentsField.setEnabled(false);
+        paymentDateField.setEnabled(false);
+        prepaymentDateField.setEnabled(false);
+        departureDateField.setEnabled(false);
+    }
+
+    @Subscribe
+    public void onAfterCommitChanges(AfterCommitChangesEvent event) {
+        Apartments apartmentsToUpdate = dataManager.load(Apartments.class).id(this.getEditedEntity().getApartments().getId()).one();
+        apartmentsToUpdate.setIsBooked(true);
+        apartmentsToUpdate.setIsFree(false);
+        dataManager.commit(apartmentsToUpdate);
     }
 }
