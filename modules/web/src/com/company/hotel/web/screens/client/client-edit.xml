@@ -21,8 +21,8 @@
     <layout expand="editActions" spacing="true">
         <form id="form" dataContainer="clientDc">
             <column width="350px">
-                <textField id="firstNameField" property="firstName"/>
                 <textField id="lastNameField" property="lastName"/>
+                <textField id="firstNameField" property="firstName"/>
                 <textField id="patronymicField" property="patronymic"/>
                 <textField id="contactsEmailField" property="contacts.email"/>
                 <textField id="contactsPhoneNumberField" property="contacts.phoneNumber"/>

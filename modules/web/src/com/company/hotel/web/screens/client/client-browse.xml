@@ -39,8 +39,8 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
-                <column id="firstName"/>
                 <column id="lastName"/>
+                <column id="firstName"/>
                 <column id="patronymic"/>
                 <column id="contacts.email"/>
                 <column id="contacts.phoneNumber"/>
