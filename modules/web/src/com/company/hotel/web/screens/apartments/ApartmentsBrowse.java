@@ -35,11 +35,11 @@ public class ApartmentsBrowse extends StandardLookup<Apartments> {
     @Subscribe("apartmentsTable")
     public void onApartmentsTableSelection(Table.SelectionEvent<Apartments> event) {
         bookApartmentsBtn.setEnabled(true);
+        Apartments apartments = apartmentsTable.getSingleSelected();
     }
 
     @Subscribe("bookApartmentsBtn")
     public void onBookApartmentsBtnClick1(Button.ClickEvent event) {
-        Apartments apartments = apartmentsTable.getSingleSelected();
         List<Apartments> freeApartments = apartmentsService.getFreeApartments();
     }
 }
