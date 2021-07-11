@@ -52,12 +52,12 @@
                 <button id="createBtn" action="registrationCardsTable.create"/>
                 <button id="editBtn" action="registrationCardsTable.edit"/>
                 <button id="removeBtn" action="registrationCardsTable.remove"/>
-                <button id="changeDateIfPaymentButton"
+                <button id="changeDateIfPaymentBtn"
                         caption="&#1048;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1089;&#1088;&#1086;&#1082; &#1079;&#1072;&#1089;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103;"
                         enable="false"/>
-                <button id="removeBookFromApartmentsCausePCR" caption="msg://removeBookFromApartmentsCausePCR.caption"
+                <button id="removeBookFromApartmentsCausePCRBtn" caption="msg://removeBookFromApartmentsCausePCR.caption"
                         enable="false" align="TOP_LEFT"/>
-                <button id="removeBookFromApartmentsCausePrepayment" caption="msg://removeBookFromApartmentsCausePrepayment.caption" enable="false"/>
+                <button id="removeBookFromApartmentsCausePrepaymentBtn" caption="msg://removeBookFromApartmentsCausePrepayment.caption" enable="false"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

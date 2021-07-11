@@ -11,7 +11,7 @@
         <property name="serverSelector" ref="cuba_ServerSelector"/>
         <property name="remoteServices">
             <map>
-                <entry key="hotel_ApartmentsService" value="com.company.hotel.service.ApartmentsService"/>
+                <entry key="hotel_RegistrationCardService" value="com.company.hotel.service.RegistrationCardService"/>
             </map>
         </property>
     </bean>
