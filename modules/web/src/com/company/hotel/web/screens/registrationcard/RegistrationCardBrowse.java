@@ -35,9 +35,6 @@ public class RegistrationCardBrowse extends StandardLookup<RegistrationCard> {
     private Button removeBookFromApartmentsCausePCRBtn;
 
     @Inject
-    private DataManager dataManager;
-
-    @Inject
     private Button removeBookFromApartmentsCausePrepaymentBtn;
 
     @Inject

@@ -17,25 +17,24 @@ public class RegistrationCardServiceBean implements RegistrationCardService {
 
     @Inject
     private DataManager dataManager;
-    @Inject
-    private Persistence persistence;
 
+    // Снятие признаков забронированности апартаментов по соответствующей им регистрационной карте
     @Override
     public void removeBookFromApartmentsByRegCard(RegistrationCard selectedRegCard) {
-        // Сброс признаков оплаты
+        // Сброс признаков оплаты в карте
         if (selectedRegCard.getIsPayment()) {
             selectedRegCard.setIsPayment(false);
             selectedRegCard.setPaymentDate(null);
             dataManager.commit(selectedRegCard);
         }
 
-        // Загрузить апартаменты переданной рег.карты
+        // Загрузка апартаментов переданной рег.карты
         Apartments selectedApartments = dataManager.load(Apartments.class).query("select ap from hotel_Apartments ap where " +
                 "ap.number = :number")
                 .parameter("number", selectedRegCard.getApartments().getNumber())
                 .one();
 
-        // Найти количество карточек с теми же апартаментами, что у переданной
+        // Установление количествао карт с теми же апартаментами, что у переданной
         View view = new View(Apartments.class)
                 .addProperty("number");
         LoadContext<RegistrationCard> registrationCardLoadContext = LoadContext.create(RegistrationCard.class)
@@ -44,6 +43,7 @@ public class RegistrationCardServiceBean implements RegistrationCardService {
                         .setParameter("apartments", selectedApartments)).setView(view);
         long count = dataManager.getCount(registrationCardLoadContext);
 
+        // Если таких карт более одной, номер остается забронированным (?)
         if (count <= 1) {
             selectedApartments.setIsBooked(false);
             selectedApartments.setIsFree(true);

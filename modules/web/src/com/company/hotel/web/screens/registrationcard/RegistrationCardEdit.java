@@ -84,7 +84,7 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
 
     @Subscribe("commitAndCloseBtn")
     public void onCommitAndCloseBtnClick(Button.ClickEvent event) {
-        ApartmentsBrowse apartmentsBrowseScreen = screens.create(ApartmentsBrowse.class);
-        apartmentsBrowseScreen.show();
+        RegistrationCardBrowse registrationCardBrowseScreen = screens.create(RegistrationCardBrowse.class);
+        registrationCardBrowseScreen.show();
     }
 }
