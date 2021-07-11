@@ -18,7 +18,7 @@ insert into HOTEL_APARTMENTS
 values ('9cb6403c-7389-e1e2-793d-421af2bad03b', 8, '2021-07-08 21:15:32', 'admin', '2021-07-11 15:14:00', 'admin', null, null, 3, false, true);
 insert into HOTEL_APARTMENTS
 (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NUMBER_, IS_BOOKED, IS_FREE)
-values ('78633896-68e7-5cbd-a338-4e2e99feac8a', 2, '2021-07-08 21:15:34', 'admin', '2021-07-09 21:26:18', 'admin', null, null, 4, null, true);
+values ('78633896-68e7-5cbd-a338-4e2e99feac8a', 2, '2021-07-08 21:15:34', 'admin', '2021-07-09 21:26:18', 'admin', null, null, 4, false, true);
 insert into HOTEL_APARTMENTS
 (ID, VERSION, CREATE_TS, CREATED_BY, UPDATE_TS, UPDATED_BY, DELETE_TS, DELETED_BY, NUMBER_, IS_BOOKED, IS_FREE)
 values ('e0ad12b8-bc74-d828-87a4-a8ec03b55ef6', 4, '2021-07-09 12:49:03', 'admin', '2021-07-10 20:09:07', 'admin', null, null, 5, false, true);
