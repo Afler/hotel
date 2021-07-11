@@ -46,11 +46,13 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
     @Subscribe("isPaymentField")
     public void onIsPaymentFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
         paymentDateField.setVisible(Boolean.TRUE.equals(event.getComponent().getValue()));
+        paymentDateField.setValue(null);
     }
 
     @Subscribe("isPrepaymentField")
     public void onIsPrepaymentFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
         prepaymentDateField.setVisible(Boolean.TRUE.equals(event.getComponent().getValue()));
+        prepaymentDateField.setValue(null);
     }
 
     public void lockApartmentsField() {
