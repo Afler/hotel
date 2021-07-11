@@ -81,12 +81,13 @@ public class RegistrationCardBrowse extends StandardLookup<RegistrationCard> {
                     .setId(selectedRegCard.getId()).setView(view);
             Date creationDate = dataManager.load(registrationCardLoadContext).getCreateTs();
             Date nowDate = new Date();
+
             long lifeTimeInHours = (nowDate.getTime() - creationDate.getTime()) / 1000 / 60 / 60;
-            notifications.create().withCaption("С момента создания объекта прошло: " +
-                    lifeTimeInHours +
-                    "ч.").show();
-            if (lifeTimeInHours / 24 > 1) {
+                        if (lifeTimeInHours / 24 > 1) {
                 removeBookFromApartmentsByRegCard(selectedRegCard);
+                notifications.create().withCaption("Успешно").show();
+            } else {
+                notifications.create().withCaption("Карточка регистрации создана всего " + lifeTimeInHours + "ч. назад").show();
             }
         }
     }
