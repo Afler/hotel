@@ -2,8 +2,10 @@ package com.company.hotel.web.screens.registrationcard;
 
 import com.company.hotel.entity.Apartments;
 import com.company.hotel.entity.Client;
+import com.company.hotel.web.screens.apartments.ApartmentsBrowse;
 import com.haulmont.cuba.core.global.DataManager;
 import com.haulmont.cuba.core.global.FluentLoader;
+import com.haulmont.cuba.gui.Screens;
 import com.haulmont.cuba.gui.components.*;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.hotel.entity.RegistrationCard;
@@ -42,6 +44,8 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
     private DateField<LocalDate> departureDateField;
     @Inject
     private DataManager dataManager;
+    @Inject
+    private Screens screens;
 
     @Subscribe("isPaymentField")
     public void onIsPaymentFieldValueChange(HasValue.ValueChangeEvent<Boolean> event) {
@@ -76,5 +80,11 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
         apartmentsToUpdate.setIsBooked(true);
         apartmentsToUpdate.setIsFree(false);
         dataManager.commit(apartmentsToUpdate);
+    }
+
+    @Subscribe("commitAndCloseBtn")
+    public void onCommitAndCloseBtnClick(Button.ClickEvent event) {
+        ApartmentsBrowse apartmentsBrowseScreen = screens.create(ApartmentsBrowse.class);
+        apartmentsBrowseScreen.show();
     }
 }
