@@ -8,4 +8,5 @@ public interface RegistrationCardService {
     void removeBookFromApartmentsByRegCard(RegistrationCard selectedRegCard);
 
     String removeBookFromApartmentsCausePrepayment(RegistrationCard selectedRegCard);
+
 }

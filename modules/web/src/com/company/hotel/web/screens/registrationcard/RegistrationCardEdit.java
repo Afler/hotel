@@ -76,7 +76,9 @@ public class RegistrationCardEdit extends StandardEditor<RegistrationCard> {
 
     @Subscribe
     public void onAfterCommitChanges(AfterCommitChangesEvent event) {
-        Apartments apartmentsToUpdate = dataManager.load(Apartments.class).id(this.getEditedEntity().getApartments().getId()).one();
+        Apartments apartmentsToUpdate = dataManager.load(Apartments.class)
+                .id(this.getEditedEntity().getApartments().getId())
+                .one();
         apartmentsToUpdate.setIsBooked(true);
         apartmentsToUpdate.setIsFree(false);
         dataManager.commit(apartmentsToUpdate);
